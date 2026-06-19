@@ -9,6 +9,19 @@ const app = express();
 
 app.use(cors());
 
+app.get("/api/ipinfo/:ip", async (req, res) => {
+  const response = await axios.get(
+    `https://ipinfo.io/${req.params.ip}`,
+    {
+      params: {
+        token: process.env.IPINFO_TOKEN,
+      },
+    }
+  );
+
+  res.json(response.data);
+});
+
 app.get("/api/abuse/:ip", async (req, res) => {
   try {
 
