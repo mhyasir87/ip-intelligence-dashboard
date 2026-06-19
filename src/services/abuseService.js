@@ -4,7 +4,7 @@ export const fetchAbuseData = async (ip) => {
   try {
 
     const response = await axios.get(
-      `http://localhost:5000/api/abuse/${ip}`
+      `https://ip-intelligence-dashboard.onrender.com/api/abuse/${ip}`
     );
 
     return response.data.data;
